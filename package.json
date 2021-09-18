@@ -1,0 +1,25 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "This app is concerned with creating,updating,editing notes.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+    ,"start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priya2002hello/Note_making_App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+    
+  },
+  "bugs": {
+    "url": "https://github.com/priya2002hello/Note_making_App/issues"
+  },
+  "homepage": "https://github.com/priya2002hello/Note_making_App#readme"
+}
