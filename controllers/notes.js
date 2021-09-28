@@ -1,6 +1,7 @@
+//all functionality for CRUD operation is defined here.
+const { notes } = require("../models/notes");//mongoose model
 
-const { notes } = require("../models/notes");
-
+//getting all notes in database
 const getnotes = async (req, res) => {
   try {
     const allnotes = await notes.find({});
@@ -10,15 +11,16 @@ const getnotes = async (req, res) => {
   }
 };
 
+//getting a single note whose id is given
 const getsinglenote = async (req, res) => {
   try {
     const { id: noteID } = req.params;
-    const note = await notes.findOne({ _id: noteID });
-    if (!note) {
+    const single_note = await notes.findOne({ _id: noteID });
+    if (!single_note) {
       return res.status(404).json({ msg: `no note with id ${noteID}` });
     }
 
-    res.status(200).json({ note });
+    res.status(200).json({ single_note });
   } catch (error) {
     res.status(500).json({ err: error });
   }
@@ -28,35 +30,37 @@ const createnote = async (req, res) => {
   try {
     console.log(req.body);
 
-    const note = await notes.create(req.body);
+    const pnotes = await notes.create(req.body);
 
-    res.status(200).json(note);
+    res.status(200).json({pnotes});
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
 };
 
+//updating a existing note in database
 const updatenote = async (req, res) => {
   try {
     const { id: noteID } = req.params;
-    const { note, completed } = req.body;
-    const up_note = await notes.findOneAndUpdate(
+    const { note,completed } = req.body;
+    const upNote = await notes.findOneAndUpdate(
       { _id: noteID },
-      { note, completed },
+      { note,completed },
       {
         new: true,
         runValidators: true,
       }
     );
-    if (!up_note) {
+    if (!upNote) {
       return res.status(404).json({ msg: `no note with id:${noteID}` });
     }
-    res.status(200).json({ up_note });
+    res.status(200).json({ upNote });
   } catch (err) {
     res.status(500).json(err);
   }
 };
 
+//deleting the note requested by user
 const deletenote = async (req, res) => {
   try {
     const { id: noteID } = req.params;

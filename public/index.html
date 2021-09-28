@@ -1,12 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>note-making app</title>
+    <title>NoteMaker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" defer></script>
+    <script src="browser_app.js" defer></script>
 </head>
-<body>
-   <h1>Welcome to server of Note making App</h1>
-</body>
+
+<body background="notes_background.jpeg">
+    <center>
+        <h2>Welcome to Note Maker</h2><br>
+        <!--form which will accept note-content entered by user-->
+        <form name="notes-form" class="notes-form">
+        
+            <div class="note-content">
+                <textarea class="note-input" id="note-input" row="2" cols="50"
+                    placeholder="enter your note here"></textarea>
+
+                <div>
+                    <button type="submit" class="add-note-btn">create</button>
+                </div>
+
+            </div>
+
+            <div class="formalert"></div>
+
+            <!--Already created notes would appear here-->
+            <section class="notes-container">
+                <div class="notes-list"></div>
+            </section>
+
+        </form>
+    </center>
+
+
 </html>

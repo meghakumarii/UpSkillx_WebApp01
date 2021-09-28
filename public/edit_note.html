@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Note-Maker</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" defer></script>
+  <script src="edit_note.js" defer></script>
+</head>
+
+<body background="notes_background.jpeg">
+
+  <div class="container" align="center">
+
+    <form class="single-note-form">
+      <h4>Edit Note</h4>
+
+      <div class="form-control">
+        <label class="label" for="note-edit-id">Note ID:-</label>
+        <p class="note-edit-id" name="note-edit-id"></p>
+      </div>
+      <div class="form-control">
+        <label class="label" for="note">Note</label><br>
+        <textarea name="note" class="edit-note"></textarea>
+      </div>
+      <div class="form-control">
+        <label class="label" for="completed">completed</label>
+        <input type="checkbox" name="completed" class="note-edit-completed" />
+      </div>
+      <button type="submit" class="block btn note-edit-btn">edit</button>
+      <div class="form-alert"></div>
+    </form>
+    <a href="index.html" class="btn back-link">back to Home page</a>
+  </div>
+</body>
+
+</html>

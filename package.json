@@ -1,5 +1,5 @@
 {
-  "name": "note",
+  "name": "note-maker",
   "version": "1.0.0",
   "description": "This app is concerned with creating,updating,editing notes.",
   "main": "app.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/priya2002hello/Note_making_App.git"
+    "url": "git+https://github.com/meghakumarii/UpSkillx_WebApp01.git"
   },
   "keywords": [],
   "author": "",
