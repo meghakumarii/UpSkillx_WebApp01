@@ -1,30 +1,32 @@
+const {connectdb}=require('./db/connect')
+
 const express=require('express')
+const morgan = require('morgan')
 const app=express()
 
-const path=require('path')
+require('dotenv').config()
 
-const user=path.resolve('User.html')
+const notes=require('./routes/notes')
 
-app.use(express.urlencoded({extended:false}))
-
+const port=3000
 app.use(express.static('./public'))
+app.use(express.urlencoded({extended:false}))
+app.use(morgan('tiny'))
+app.use(express.json())
+
+app.use('/api/v1/notes',notes)
 
 app.get('/',(req,res)=>{
-    console.log("user hit server")
-    res.send("Welcome to note making application");
+
+    res.status(200).send("Welcome to Note making server")
 })
+const start=async()=>{
+   try {
+       await connectdb(process.env.MONGOURI).then(()=>console.log("connection to mongodb succesful"))
+       app.listen(port,console.log(`server is running on port ${port}`))
+   } catch (error) {
+       console.log(error)
+   }
+}
 
-
-app.get('/user',(req,res)=>{
-    res.sendFile(user)
-})
-
-
-app.post('/note',(req,res)=>{
-      console.log(req.body)
-      res.send('your first note created')
-})
-
-app.listen('3000',()=>{
-    console.log('app running on port 3000')
-})
+start()
