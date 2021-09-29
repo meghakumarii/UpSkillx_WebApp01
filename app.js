@@ -8,7 +8,7 @@ require('dotenv').config()
 
 const notes=require('./routes/notes')  
 
-const port=3000
+const port=process.env.PORT ||3000;
 
 app.use(express.static('./public'))      //setting up static folder containing static files
 app.use(express.urlencoded({extended:false}))  //useful for accesing info when user posts note
