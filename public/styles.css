@@ -1,6 +1,15 @@
 body {
   align-content: center;
 }
+.info {
+  color: #221d09;
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  text-align: center;
+  text-justify: inter-word;
+}
 
 .notes-form {
   align-items: center;
