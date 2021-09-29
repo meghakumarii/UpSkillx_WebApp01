@@ -7,7 +7,7 @@ const formalertDOM=document.querySelector(".formalert")
 //gets and shows all notes created by user
 const showallnotes=async()=>{
     try{
-    const {data:{allnotes}}=await axios.get("http://localhost:3000/api/v1/notes") //generating a get request
+    const {data:{allnotes}}=await axios.get("/api/v1/notes") //generating a get request
     
     if(allnotes.length<1){
        notesDOM.innerHTML='<h5>no notes </h5>'
@@ -66,7 +66,7 @@ notesDOM.addEventListener('click', async (e) => {
     const note = noteinputDOM.value  //accesing newly entered note content
   
     try {
-      await axios.post('http://localhost:3000/api/v1/notes', { note }) //generating post request
+      await axios.post('/api/v1/notes', { note }) //generating post request
       showallnotes()
       noteinputDOM.value = ''
       formalertDOM.style.display = 'block'
